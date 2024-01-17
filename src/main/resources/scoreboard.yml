@@ -1,0 +1,11 @@
+scoreboard:
+  title: #Titulo da scoreboard
+    text: "&b&lThunderLobby"   #Texto do titulo
+
+  #Linhas da scoreboard
+  #Recomendavél utilizar no máximo 15 linhas!
+  lines:
+    - ""
+    - "Players: {playercount}"
+    - ""
+    - "loja.thunder.com.br"

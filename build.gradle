@@ -1,0 +1,71 @@
+
+plugins {
+    id("java")
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'io.freefair.lombok' version 'latest.release'
+}
+group = 'me.deley.thunder.lobby'
+version = '1.0-SNAPSHOT'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    maven {
+        url 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/central'
+    }
+    maven {
+        url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://mvn.lumine.io/repository/maven-public/'
+    }
+    maven {
+        url 'https://repository.derklaro.dev/releases/'
+        mavenContent {
+            releasesOnly()
+        }
+    }
+    maven {
+        url 'https://repository.derklaro.dev/snapshots/'
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
+    maven {
+        url 'https://repo.dmulloy2.net/repository/public/'
+    }
+    maven {
+        url 'https://repo.viaversion.com'
+    }
+    maven {
+        url 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
+    compileOnly 'net.luckperms:api:5.4'
+    compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT" // Replace PLATFORM with bukkit, paper, sponge, etc
+    compileOnly("me.clip:placeholderapi:2.11.5")
+}
+
+shadowJar {
+    relocate 'co.aikar.commands', 'me.deley.thunder.lobby.acf'
+    relocate 'co.aikar.locales', 'me.deley.thunder.lobby.locales'
+}
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}

@@ -1,0 +1,12 @@
+scoreboard:
+  title: #Titulo da scoreboard
+    text: "&b&lThunderLobby"   #Texto do titulo
+
+  #Linhas da scoreboard
+  lines:
+    - ""
+    - "&fRank: %luckperms_prefix%"
+    - ""
+    - "&fPlayers: &a{playercount}"
+    - ""
+    - "&b&mloja.thunder.com.br"
